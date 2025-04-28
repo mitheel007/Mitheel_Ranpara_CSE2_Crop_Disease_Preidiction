@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant Disease Recognition System</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f7f6;
+        }
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://img-s-msn-com.akamaized.net/tenant/amp/entityid/BB1msOP2?w=0&h=0&q=60&m=6&f=jpg&u=t');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        .feature-card {
+            transition: transform 0.3s;
+        }
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+        .news-card {
+            margin-bottom: 20px;
+        }
+        .footer {
+            background-color: #343a40;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">🌿 Crop Disease Recognition</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#disease-recognition">Disease Recognition</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <h1 class="display-4">Protect Your Crops with AI</h1>
+            <p class="lead">Welcome to the Plant Disease Recognition System! Our AI-powered tool helps farmers and gardeners identify plant diseases quickly and accurately.</p>
+            <a href="#disease-recognition" class="btn btn-success btn-lg mt-3">Get Started</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Why Choose Our System?</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card feature-card shadow-sm">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Accurate Predictions</h5>
+                            <p class="card-text">Leverages a deep learning model trained on 38 classes of plant diseases for precise identification.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card feature-card shadow-sm">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Image Segmentation</h5>
+                            <p class="card-text">Highlights diseased areas on leaves to help you understand the extent of the issue.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card feature-card shadow-sm">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">User-Friendly Interface</h5>
+                            <p class="card-text">Simple navigation and intuitive design make it easy for anyone to use.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Real-Time Agriculture News Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">Latest Agriculture News</h2>
+            <div id="news-container" class="row">
+                <!-- News articles will be populated here via JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-5 text-center">
+        <div class="container">
+            <h2>Ready to Diagnose Your Plants?</h2>
+            <p class="lead">Head to the Disease Recognition page to upload an image and get instant results.</p>
+            <a href="#disease-recognition" class="btn btn-success btn-lg">Diagnose Now</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>Plant Disease Recognition System | Made by Mitheel Ranpara| © 2025</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- JavaScript for Fetching News -->
+    <script>
+        async function fetchAgricultureNews() {
+            try {
+                // Using a sample API (replace with a real agriculture news API like NewsAPI)
+                const response = await fetch('https://newsapi.org/v2/everything?q=agriculture&apiKey=3147a9ad9dc44da9b9e0cd4b23ccaf75');
+                const data = await response.json();
+                const newsContainer = document.getElementById('news-container');
+
+                // Clear previous content
+                newsContainer.innerHTML = '';
+
+                // Sample data if API is not available
+                const sampleNews = [
+                    {
+                        title: "New AI Tool Helps Farmers Detect Crop Diseases",
+                        description: "A revolutionary AI system is helping farmers identify plant diseases early, saving millions in crop losses.",
+                        url: "#",
+                        urlToImage: "https://via.placeholder.com/150"
+                    },
+                    {
+                        title: "Sustainable Farming Practices Gain Traction",
+                        description: "Farmers worldwide are adopting sustainable practices to combat climate change and improve yields.",
+                        url: "#",
+                        urlToImage: "https://via.placeholder.com/150"
+                    },
+                    {
+                        title: "Global Wheat Prices Surge Amid Supply Concerns",
+                        description: "Adverse weather conditions have led to a spike in wheat prices, impacting global markets.",
+                        url: "#",
+                        urlToImage: "https://via.placeholder.com/150"
+                    }
+                ];
+
+                // Use API data if available, else fallback to sample
+                const articles = data.articles && data.articles.length > 0 ? data.articles.slice(0, 6) : sampleNews;
+
+                articles.forEach(article => {
+                    const newsCard = `
+                        <div class="col-md-4 news-card">
+                            <div class="card shadow-sm">
+                                <img src="${article.urlToImage || 'https://via.placeholder.com/150'}" class="card-img-top" alt="${article.title}">
+                                <div class="card-body">
+                                    <h5 class="card-title">${article.title}</h5>
+                                    <p class="card-text">${article.description}</p>
+                                    <a href="${article.url}" class="btn btn-outline-success" target="_blank">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    newsContainer.innerHTML += newsCard;
+                });
+            } catch (error) {
+                console.error('Error fetching news:', error);
+            }
+        }
+
+        // Fetch news on page load
+        window.onload = fetchAgricultureNews;
+    </script>
+</body>
+</html>
